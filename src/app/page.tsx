@@ -1,4 +1,5 @@
-import NewFormItemDialog from "@/components/NewFormItemDialog";
+import Link from "next/link";
+import { DocumentTextIcon } from "@heroicons/react/24/outline";
 
 export default function Home() {
   return (
@@ -7,7 +8,11 @@ export default function Home() {
         <input type="text" className="grow" placeholder="Search" />
         <span className="badge badge-info">Optional</span>
       </label>
-      <NewFormItemDialog />
+      <Link href="/form-builder/99999" className="btn btn-primary">
+        <DocumentTextIcon className="w-6 h-6" />
+        New Form
+      </Link>
+      {/* <NewFormItemDialog /> */}
     </main>
   );
 }
