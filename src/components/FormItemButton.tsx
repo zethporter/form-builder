@@ -1,5 +1,5 @@
-import { t_CompleteForm } from "@/zod/fieldItem";
-import React from "react";
+import { t_CompleteForm } from '@/zod/fieldItem';
+import React from 'react';
 
 const FormItemButton = ({
   form,
@@ -7,17 +7,19 @@ const FormItemButton = ({
   sectionId,
   fieldName,
   children,
+  componentType
 }: {
   form: t_CompleteForm;
   setForm: (e: t_CompleteForm) => void;
   sectionId: string;
   fieldName: string;
-  children?: React.ReactNode;
+  children: React.ReactNode;
+  componentType: string;
 }) => {
   return (
     <button
-      type="button"
-      className="btn-primary btn-outline border-none btn h-fit py-3 justify-start"
+      type='button'
+      className='btn-primary btn-outline border-none btn h-fit py-3 justify-start'
       onClick={() => {
         setForm({
           ...form,
@@ -29,23 +31,22 @@ const FormItemButton = ({
                 ...form.sections[sectionId].fields,
                 [fieldName]: {
                   id: fieldName,
-                  componentType: "text",
-                  name: "",
-                  label: "",
-                  placeholder: "",
+                  componentType: componentType,
+                  name: '',
+                  label: '',
+                  placeholder: '',
                   disabled: false,
                   hidden: false,
                   options: [],
-                  validationRules: {},
-                },
-              },
-            },
-          },
+                  validationRules: {}
+                }
+              }
+            }
+          }
         });
       }}
     >
-      <p>Text Field</p>
-      <div className="w-full h-12 rounded-btn bg-base-200"></div>
+      {children}
     </button>
   );
 };
